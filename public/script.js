@@ -12,16 +12,20 @@ async function fetchContacts() {
 
 // renderizamos los contactos de la tabla
 function renderContacts(contacts) {
-    contactTable.innerHTML = contacts.map(contact => `
-        <tr>
-            <td>${contact.name}</td>
-            <td>${contact.email}</td>
-            <td>${contact.phone}</td>
-            <td>
-            <button class="delete-btn" onclick="deleteContact('${contact.id}')>Eliminar</button>
-            </td>
-        </tr>
-    `).join('')
+    contactTable.innerHTML = '';
+
+  contacts.forEach(contact => {
+    contactTable.innerHTML += `
+      <tr>
+        <td>${contact.name}</td>
+        <td>${contact.email}</td>
+        <td>${contact.phone}</td>
+        <td>
+          <button onclick="deleteContact('${contact.id}')">Eliminar</button>
+        </td>
+      </tr>
+    `;
+  });
 }
 
 // manejo del evento de enviar el formulario para agregar el contacto
@@ -43,6 +47,8 @@ form.addEventListener('submit', async (e) => {
 
 // eliminar un contacto 
 async function deleteContact(id) {
+    const confirmDelete = confirm('¿Seguro que querés eliminar este contacto?');
+    if (!confirmDelete) return;
     await fetch(`${API_URL}/${id}`, { method: 'DELETE' }); //Realiza una soli delete al backend
     fetchContacts(); // actualizar la tabla de contactos
 }
