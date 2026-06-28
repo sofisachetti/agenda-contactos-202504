@@ -20,6 +20,7 @@ Una aplicación web para la gestión de contactos desarrollada con **Node.js**, 
 - JavaScript
 - HTML5
 - CSS3
+- Docker
 
 ---
 
@@ -114,7 +115,11 @@ No se utiliza una base de datos; la persistencia se realiza mediante lectura y e
 - Practicar el manejo de archivos para la persistencia de datos.
 
 ---
+## Actualización del proyecto
 
+El presente proyecto se utilizó para la realización de una práctica con Docker, para demostrar el uso de contenedores en diferentes sistemas operativos. Es por eso que a Junio de 2026 se le agregan los archivos `.dockerignore` y `Dockerfile`. 
+
+---
 ## 👩‍💻 Autor
 
 **Sofía Sachetti**
